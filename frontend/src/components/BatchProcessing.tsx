@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { UploadCloud, FileText, Loader2, AlertCircle, Sparkles } from "lucide-react";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
@@ -10,6 +10,26 @@ export default function BatchProcessing({ onResult }: { onResult: (data: any) =>
   const [file, setFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [loadingStep, setLoadingStep] = useState(0);
+
+  const loadingMessages = [
+    "Menyiapkan Model LSTM...",
+    "Membersihkan Teks Data...",
+    "Tokenisasi & Sekuensing...",
+    "AI Memprediksi Sentimen...",
+    "Merakit Visualisasi Data..."
+  ];
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+    if (loading) {
+      setLoadingStep(0);
+      interval = setInterval(() => {
+        setLoadingStep((prev) => (prev < loadingMessages.length - 1 ? prev + 1 : prev));
+      }, 2000); // Ganti teks setiap 2 detik
+    }
+    return () => clearInterval(interval);
+  }, [loading]);
 
   const handleDrag = useCallback((e: React.DragEvent) => {
     e.preventDefault();
@@ -142,7 +162,19 @@ export default function BatchProcessing({ onResult }: { onResult: (data: any) =>
         ) : (
           <Sparkles className="w-5 h-5 group-hover:scale-110 transition-transform text-fuchsia-600" />
         )}
-        {loading ? "Menambang Data (Data Mining)..." : "Mulai Pemrosesan Massal"}
+        {loading ? (
+          <motion.span
+            key={loadingStep}
+            initial={{ opacity: 0, y: 5 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -5 }}
+            className="inline-block"
+          >
+            {loadingMessages[loadingStep]}
+          </motion.span>
+        ) : (
+          "Mulai Pemrosesan Massal"
+        )}
       </button>
     </div>
   );

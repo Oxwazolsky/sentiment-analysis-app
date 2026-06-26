@@ -3,10 +3,12 @@
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Gamepad2, BrainCircuit, BarChart3, ArrowRight, Sparkles, MessageSquare, Zap, Database, Cpu, Layers, Activity } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import ModelMetrics from "@/components/ModelMetrics";
 
 export default function LandingPage() {
   const containerRef = useRef(null);
+  const [isMetricsOpen, setIsMetricsOpen] = useState(false);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
@@ -17,6 +19,8 @@ export default function LandingPage() {
   return (
     <div ref={containerRef} className="min-h-screen bg-[#050505] text-white selection:bg-primary/30 relative overflow-hidden">
       
+      <ModelMetrics isOpen={isMetricsOpen} onClose={() => setIsMetricsOpen(false)} />
+
       {/* Premium Background with Animated Grid */}
       <div className="fixed inset-0 z-0 opacity-20 pointer-events-none">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
@@ -27,7 +31,7 @@ export default function LandingPage() {
       <motion.div style={{ y: yBackground }} className="absolute top-[40%] right-[-20%] w-[40vw] h-[40vw] bg-fuchsia-600/20 rounded-full blur-[120px] pointer-events-none"></motion.div>
 
       {/* Navbar */}
-      <nav className="fixed top-0 w-full px-6 md:px-12 py-4 flex items-center justify-between z-50 bg-[#050505]/60 backdrop-blur-xl border-b border-white/5">
+      <nav className="fixed top-0 w-full px-6 md:px-12 py-4 flex items-center justify-between z-40 bg-[#050505]/60 backdrop-blur-xl border-b border-white/5">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-fuchsia-500 rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(99,102,241,0.4)]">
             <Gamepad2 className="w-5 h-5 text-white" />
@@ -92,6 +96,14 @@ export default function LandingPage() {
                 Mulai Analisis <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </span>
             </Link>
+            
+            <button 
+              onClick={() => setIsMetricsOpen(true)}
+              className="px-8 py-4 bg-zinc-900 border border-white/10 hover:border-white/30 text-white font-bold rounded-full transition-all hover:scale-105 flex items-center gap-2"
+            >
+              <BarChart3 className="w-5 h-5 text-indigo-400" />
+              Lihat Metrik Model
+            </button>
           </motion.div>
         </div>
 

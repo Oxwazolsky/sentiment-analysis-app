@@ -51,6 +51,35 @@ export default function DashboardCharts({ data }: { data: any }) {
         <div className="h-[1px] flex-grow bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
       </div>
 
+      <div className="flex justify-center mb-4">
+        <button
+          onClick={() => {
+            const csvRows = [];
+            const headers = ["Teks Asli", "Teks Preprocessing", "Sentimen", "Confidence (%)", "Estimasi Rating"];
+            csvRows.push(headers.join(","));
+            
+            results.forEach((r: any) => {
+              const text = `"${r.original_text?.replace(/"/g, '""')}"`;
+              const cleanText = `"${r.preprocessed_text?.replace(/"/g, '""')}"`;
+              csvRows.push([text, cleanText, r.sentiment, r.confidence, r.rating].join(","));
+            });
+            
+            const csvString = csvRows.join("\n");
+            const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.setAttribute("href", url);
+            link.setAttribute("download", "hasil_prediksi_sentimen.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          }}
+          className="bg-fuchsia-600 hover:bg-fuchsia-500 text-white font-semibold py-2 px-6 rounded-full flex items-center gap-2 transition-colors border border-fuchsia-400/50 shadow-[0_0_15px_rgba(192,38,211,0.3)]"
+        >
+          <Database className="w-4 h-4" /> Download Data Prediksi (.csv)
+        </button>
+      </div>
+
       {/* Top Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="bg-zinc-900/40 backdrop-blur-xl p-6 rounded-3xl border border-white/5 flex flex-col items-center justify-center text-center relative overflow-hidden group">
