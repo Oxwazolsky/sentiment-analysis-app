@@ -255,50 +255,50 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* CTA SECTION - UPGRADED */}
+      {/* CTA SECTION - MINIMALIST */}
       <section className="py-24 px-6 relative z-10">
         <motion.div 
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-          className="max-w-5xl mx-auto bg-zinc-900/50 backdrop-blur-2xl border border-white/10 rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden shadow-[0_0_80px_rgba(99,102,241,0.15)] group"
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl mx-auto bg-zinc-900/50 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] p-8 md:p-12 text-center relative overflow-hidden shadow-[0_0_60px_rgba(99,102,241,0.1)] group"
         >
           {/* Animated Glows */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-gradient-to-b from-indigo-500/20 to-transparent blur-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-fuchsia-500/20 rounded-full blur-[80px] -translate-x-1/2 translate-y-1/2 group-hover:bg-fuchsia-500/30 transition-colors duration-700"></div>
-          <div className="absolute bottom-0 right-0 w-64 h-64 bg-blue-500/20 rounded-full blur-[80px] translate-x-1/2 translate-y-1/2 group-hover:bg-blue-500/30 transition-colors duration-700"></div>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-gradient-to-b from-indigo-500/10 to-transparent blur-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-fuchsia-500/10 rounded-full blur-[60px] -translate-x-1/2 translate-y-1/2 group-hover:bg-fuchsia-500/20 transition-colors duration-700"></div>
+          <div className="absolute bottom-0 right-0 w-48 h-48 bg-blue-500/10 rounded-full blur-[60px] translate-x-1/2 translate-y-1/2 group-hover:bg-blue-500/20 transition-colors duration-700"></div>
           
           <div className="relative z-10">
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-8 shadow-lg shadow-indigo-500/30"
+              transition={{ delay: 0.1, duration: 0.4 }}
+              className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-6 shadow-md shadow-indigo-500/20"
             >
-              <Zap className="w-8 h-8 text-white" />
+              <Zap className="w-5 h-5 text-white" />
             </motion.div>
             
-            <h2 className="text-4xl md:text-6xl font-black mb-6 text-white tracking-tight leading-tight">
+            <h2 className="text-3xl md:text-4xl font-black mb-4 text-white tracking-tight leading-tight">
               Siap Menganalisis <br className="hidden md:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-fuchsia-400">Data Sentimen Anda?</span>
             </h2>
             
-            <p className="text-lg md:text-xl text-zinc-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base md:text-lg text-zinc-400 mb-8 max-w-xl mx-auto leading-relaxed">
               Langsung tuju ke dashboard untuk menguji model LSTM kami dengan kalimat ulasan Anda sendiri, atau unggah ribuan dataset CSV untuk analitik massal secara real-time.
             </p>
             
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
               <Link 
                 href="/dashboard"
-                className="inline-flex items-center gap-3 px-10 py-5 bg-white text-black font-extrabold rounded-full overflow-hidden transition-all shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:shadow-[0_0_60px_rgba(255,255,255,0.5)] text-lg group/btn"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-extrabold rounded-full overflow-hidden transition-all shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_50px_rgba(255,255,255,0.4)] text-base group/btn"
               >
                 <span>Buka Dashboard Analitik</span>
-                <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
               </Link>
             </motion.div>
           </div>
