@@ -210,18 +210,18 @@ export default function LandingPage() {
       </section>
 
       {/* HOW IT WORKS INFOGRAPHIC */}
-      <section className="py-32 px-6 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">Alur Kerja Sistem <span className="text-indigo-400">Data Mining</span></h2>
-            <p className="text-zinc-400 max-w-2xl mx-auto text-lg">Bagaimana teks mentah dari ulasan game diproses hingga menjadi wawasan analitik yang berharga bagi developer.</p>
+      <section className="py-20 px-6 relative z-10">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-2xl md:text-4xl font-bold mb-4">Alur Kerja Sistem <span className="text-indigo-400">Data Mining</span></h2>
+            <p className="text-zinc-400 max-w-xl mx-auto text-base">Bagaimana teks mentah dari ulasan game diproses hingga menjadi wawasan analitik yang berharga bagi developer.</p>
           </div>
 
           <div className="relative">
             {/* Connecting Line (Desktop) */}
             <div className="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-indigo-500/30 to-transparent -translate-y-1/2 z-0"></div>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-12 relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
               {[
                 { icon: <Database />, title: "Data Collection", desc: "Mengumpulkan data mentah berupa CSV dari hasil scraping ulasan Google Play Store." },
                 { icon: <Layers />, title: "Preprocessing", desc: "Membersihkan teks (Stopword removal, Stemming) agar model dapat memahami konteks dasar kata." },
@@ -236,18 +236,18 @@ export default function LandingPage() {
                   transition={{ delay: i * 0.2 }}
                   className="flex flex-col items-center text-center group"
                 >
-                  <div className="w-20 h-20 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center mb-6 shadow-xl group-hover:scale-110 group-hover:border-indigo-500/50 group-hover:shadow-indigo-500/20 transition-all duration-300 relative">
-                    <div className="absolute inset-0 bg-indigo-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <span className="text-indigo-400 group-hover:text-indigo-300 transition-colors w-8 h-8 flex items-center justify-center">
+                  <div className="w-16 h-16 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center mb-5 shadow-xl group-hover:scale-110 group-hover:border-indigo-500/50 group-hover:shadow-indigo-500/20 transition-all duration-300 relative">
+                    <div className="absolute inset-0 bg-indigo-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <span className="text-indigo-400 group-hover:text-indigo-300 transition-colors w-6 h-6 flex items-center justify-center">
                       {step.icon}
                     </span>
                     {/* Step number badge */}
-                    <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center text-xs font-bold text-zinc-300">
+                    <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center text-[10px] font-bold text-zinc-300">
                       0{i+1}
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-zinc-200">{step.title}</h3>
-                  <p className="text-zinc-500 text-sm leading-relaxed">{step.desc}</p>
+                  <h3 className="text-lg font-bold mb-2 text-zinc-200">{step.title}</h3>
+                  <p className="text-zinc-500 text-xs leading-relaxed">{step.desc}</p>
                 </motion.div>
               ))}
             </div>
