@@ -51,28 +51,28 @@ export default function ModelMetrics({ isOpen, onClose }: { isOpen: boolean, onC
               <div className="bg-zinc-900 border border-white/5 p-4 rounded-2xl flex flex-col items-center text-center">
                 <PieChart className="w-6 h-6 text-emerald-400 mb-2" />
                 <p className="text-zinc-500 text-xs font-bold uppercase mb-1">Akurasi</p>
-                <p className="text-2xl font-black text-white">88.5%</p>
+                <p className="text-2xl font-black text-white">81.9%</p>
               </div>
               
               {/* Precision */}
               <div className="bg-zinc-900 border border-white/5 p-4 rounded-2xl flex flex-col items-center text-center">
                 <Target className="w-6 h-6 text-blue-400 mb-2" />
                 <p className="text-zinc-500 text-xs font-bold uppercase mb-1">Presisi</p>
-                <p className="text-2xl font-black text-white">85.2%</p>
+                <p className="text-2xl font-black text-white">78.0%</p>
               </div>
 
               {/* Recall */}
               <div className="bg-zinc-900 border border-white/5 p-4 rounded-2xl flex flex-col items-center text-center">
                 <Activity className="w-6 h-6 text-fuchsia-400 mb-2" />
                 <p className="text-zinc-500 text-xs font-bold uppercase mb-1">Recall</p>
-                <p className="text-2xl font-black text-white">87.1%</p>
+                <p className="text-2xl font-black text-white">81.9%</p>
               </div>
 
               {/* F1 Score */}
               <div className="bg-zinc-900 border border-white/5 p-4 rounded-2xl flex flex-col items-center text-center">
                 <BarChart4 className="w-6 h-6 text-amber-400 mb-2" />
                 <p className="text-zinc-500 text-xs font-bold uppercase mb-1">F1-Score</p>
-                <p className="text-2xl font-black text-white">86.1%</p>
+                <p className="text-2xl font-black text-white">79.8%</p>
               </div>
             </div>
 
