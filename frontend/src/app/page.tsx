@@ -46,7 +46,7 @@ export default function LandingPage() {
       </nav>
 
       {/* HERO SECTION */}
-      <main className="relative z-10 pt-32 pb-20 px-6 md:px-12 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 min-h-[90vh]">
+      <main className="relative z-10 pt-32 pb-20 px-6 md:px-12 max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-10 min-h-[90vh]">
         
         {/* Left: Typography & CTA */}
         <div className="flex-1 text-left">
@@ -54,17 +54,17 @@ export default function LandingPage() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 mb-6"
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 mb-4"
           >
-            <Sparkles className="w-4 h-4" />
-            <span className="text-xs font-semibold uppercase tracking-wider">Tugas Akhir Data Mining 2026</span>
+            <Sparkles className="w-3.5 h-3.5" />
+            <span className="text-[10px] font-semibold uppercase tracking-wider">Tugas Akhir Data Mining 2026</span>
           </motion.div>
           
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-black tracking-tighter mb-6 leading-[1.1]"
+            className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter mb-5 leading-[1.15]"
           >
             Kecerdasan Buatan <br /> untuk Analisis <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-fuchsia-400">
@@ -76,7 +76,7 @@ export default function LandingPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-lg md:text-xl text-zinc-400 mb-10 max-w-xl leading-relaxed"
+            className="text-base md:text-lg text-zinc-400 mb-8 max-w-lg leading-relaxed"
           >
             Sistem prediksi rating bintang dan klasifikasi sentimen otomatis yang ditenagai oleh arsitektur <strong className="text-zinc-200">Long Short-Term Memory (LSTM)</strong> untuk mengungkap wawasan tersembunyi dari ribuan ulasan pemain.
           </motion.p>
@@ -85,23 +85,23 @@ export default function LandingPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="flex flex-wrap gap-4"
+            className="flex flex-wrap gap-3"
           >
             <Link 
               href="/dashboard"
-              className="group relative px-8 py-4 bg-white text-black font-bold rounded-full overflow-hidden transition-all hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.2)]"
+              className="group relative px-6 py-3 bg-white text-black text-sm font-bold rounded-full overflow-hidden transition-all hover:scale-105 shadow-[0_0_30px_rgba(255,255,255,0.15)]"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-indigo-100 to-fuchsia-100 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <span className="relative z-10 flex items-center gap-2">
-                Mulai Analisis <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                Mulai Analisis <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </span>
             </Link>
             
             <button 
               onClick={() => setIsMetricsOpen(true)}
-              className="px-8 py-4 bg-zinc-900 border border-white/10 hover:border-white/30 text-white font-bold rounded-full transition-all hover:scale-105 flex items-center gap-2"
+              className="px-6 py-3 bg-zinc-900 border border-white/10 hover:border-white/30 text-white text-sm font-bold rounded-full transition-all hover:scale-105 flex items-center gap-2"
             >
-              <BarChart3 className="w-5 h-5 text-indigo-400" />
+              <BarChart3 className="w-4 h-4 text-indigo-400" />
               Lihat Metrik Model
             </button>
           </motion.div>
@@ -112,7 +112,7 @@ export default function LandingPage() {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="flex-1 w-full max-w-lg relative perspective-1000"
+          className="flex-1 w-full max-w-md relative perspective-1000"
         >
           {/* Main Visual Container */}
           <div className="relative w-full aspect-square bg-gradient-to-br from-zinc-900 to-black rounded-3xl border border-white/10 shadow-2xl p-6 overflow-hidden flex flex-col justify-between transform-gpu rotate-y-[-5deg] rotate-x-[5deg] hover:rotate-y-0 hover:rotate-x-0 transition-transform duration-700">
