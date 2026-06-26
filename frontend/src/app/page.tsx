@@ -32,7 +32,7 @@ export default function LandingPage() {
           <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-fuchsia-500 rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(99,102,241,0.4)]">
             <Gamepad2 className="w-5 h-5 text-white" />
           </div>
-          <span className="font-bold text-xl tracking-tight">ReviewMind<span className="text-indigo-400">.ai</span></span>
+          <span className="font-bold text-xl tracking-tight">ReviewBlind<span className="text-indigo-400">.ai</span></span>
         </div>
         <div>
           <Link href="/dashboard" className="px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 text-sm font-medium transition-all hover:scale-105 active:scale-95">
@@ -267,7 +267,7 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2 opacity-50 hover:opacity-100 transition-opacity">
             <Gamepad2 className="w-5 h-5" />
-            <span className="font-bold tracking-tight">ReviewMind.ai</span>
+            <span className="font-bold tracking-tight">ReviewBlind.ai</span>
           </div>
           <p className="text-zinc-600 text-sm">
             &copy; {new Date().getFullYear()} - Implementasi Sistem Prediksi Rating Bintang (Data Mining)
