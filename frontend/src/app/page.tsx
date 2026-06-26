@@ -255,23 +255,54 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* CTA SECTION */}
+      {/* CTA SECTION - UPGRADED */}
       <section className="py-24 px-6 relative z-10">
-        <div className="max-w-5xl mx-auto bg-gradient-to-br from-indigo-900/40 to-fuchsia-900/40 border border-white/10 rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7 }}
+          className="max-w-5xl mx-auto bg-zinc-900/50 backdrop-blur-2xl border border-white/10 rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden shadow-[0_0_80px_rgba(99,102,241,0.15)] group"
+        >
+          {/* Animated Glows */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-gradient-to-b from-indigo-500/20 to-transparent blur-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-fuchsia-500/20 rounded-full blur-[80px] -translate-x-1/2 translate-y-1/2 group-hover:bg-fuchsia-500/30 transition-colors duration-700"></div>
+          <div className="absolute bottom-0 right-0 w-64 h-64 bg-blue-500/20 rounded-full blur-[80px] translate-x-1/2 translate-y-1/2 group-hover:bg-blue-500/30 transition-colors duration-700"></div>
+          
           <div className="relative z-10">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Siap Menganalisis Data Anda?</h2>
-            <p className="text-xl text-indigo-200 mb-10 max-w-2xl mx-auto">
-              Langsung tuju ke dashboard untuk menguji model dengan kalimat ulasan Anda sendiri atau unggah dataset CSV untuk Batch Processing.
-            </p>
-            <Link 
-              href="/dashboard"
-              className="inline-flex items-center gap-2 px-10 py-5 bg-white text-black font-bold rounded-full overflow-hidden transition-all hover:scale-105 shadow-2xl text-lg"
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-8 shadow-lg shadow-indigo-500/30"
             >
-              Buka Dashboard Analitik <Zap className="w-5 h-5 text-yellow-500" />
-            </Link>
+              <Zap className="w-8 h-8 text-white" />
+            </motion.div>
+            
+            <h2 className="text-4xl md:text-6xl font-black mb-6 text-white tracking-tight leading-tight">
+              Siap Menganalisis <br className="hidden md:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-fuchsia-400">Data Sentimen Anda?</span>
+            </h2>
+            
+            <p className="text-lg md:text-xl text-zinc-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+              Langsung tuju ke dashboard untuk menguji model LSTM kami dengan kalimat ulasan Anda sendiri, atau unggah ribuan dataset CSV untuk analitik massal secara real-time.
+            </p>
+            
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link 
+                href="/dashboard"
+                className="inline-flex items-center gap-3 px-10 py-5 bg-white text-black font-extrabold rounded-full overflow-hidden transition-all shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:shadow-[0_0_60px_rgba(255,255,255,0.5)] text-lg group/btn"
+              >
+                <span>Buka Dashboard Analitik</span>
+                <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
+              </Link>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Footer */}
