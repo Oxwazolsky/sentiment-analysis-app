@@ -106,8 +106,24 @@ class ReviewPredictor:
             # Fallback mock preprocessing
             return text.lower()
             
+        # 0. Case Folding Awal & Penanganan Frasa Negasi (Kelemahan Model)
+        text = str(text).lower()
+        phrases_to_replace = {
+            "kurang memuaskan": "kecewa",
+            "tidak memuaskan": "kecewa",
+            "kurang bagus": "jelek",
+            "tidak bagus": "jelek",
+            "kurang suka": "benci",
+            "tidak suka": "benci",
+            "sangat kurang": "jelek",
+            "ga seru": "membosankan",
+            "tidak seru": "membosankan"
+        }
+        for phrase, replacement in phrases_to_replace.items():
+            text = text.replace(phrase, replacement)
+            
         # 1. Cleansing (Hapus URL, Emoji, Karakter non-alfabet, dan huruf berulang >2)
-        text = re.sub(r'http\S+|www\S+|https\S+', '', str(text), flags=re.MULTILINE)
+        text = re.sub(r'http\S+|www\S+|https\S+', '', text, flags=re.MULTILINE)
         text = emoji.replace_emoji(text, replace='')
         text = re.sub(r'[^a-zA-Z\s]', '', text)
         text = re.sub(r'(.)\1{2,}', r'\1', text) 
