@@ -46,7 +46,7 @@ class ReviewPredictor:
         self.tokenizer = None
         self.encoder = None
         self.is_mock = True
-        self.max_length = 60 # Sesuai dengan konfigurasi di notebook Anda
+        self.max_length = 60 
         
         # Inisialisasi CACHE untuk mempercepat Sastrawi Stemmer
         self.stem_cache = {}
