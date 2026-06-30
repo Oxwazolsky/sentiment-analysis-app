@@ -10,7 +10,7 @@ app = FastAPI(title="Game Review Sentiment & Rating API", version="1.0.0")
 # Setup CORS untuk mengizinkan request dari frontend Next.js
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://reviewblind.vercel.app/"], # Ganti dengan domain Vercel Anda nanti untuk keamanan
+    allow_origins=["https://reviewblind.vercel.app/"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
